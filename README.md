@@ -59,8 +59,86 @@ STEP 6: Use zscore of to remove outliers
 ![307781373-c2891cdd-b5d1-435a-8a2a-14416a08795d](https://github.com/NVikas1905/exno1/assets/133752491/3e2460b2-dd85-45e6-9946-844b2fecce78)
 
 
+# 2)Outlier Detection and Removal
+
+# AIM:
+To read a given dataset and remove outliers and save a new dataframe.
+
+# ALGORITHM:
+
+(1) Remove outliers using IQR
+
+(2) After removing outliers in step 1, you get a new dataframe.
+
+(3) use zscore of 3 to remove outliers. This is quite similar to IQR and you will get exact same result
+
+(4) for the data set height_weight.csv find the following
+
+(i) Using IQR detect weight outliers and print them
+
+(ii) Using IQR, detect height outliers and print them
+
+# PROGRAM
+
+    import pandas as pd
+    import numpy as np
+    import seaborn as sns
+    import pandas as pd
+    from scipy import stats
+    df = pd.read_csv("/content/heights.csv")
+    sns.boxplot(data=df)
+    sns.scatterplot(data=df)
+    max =df['height'].quantile(0.90)
+    min =df['height'].quantile(0.15)
+    max
+    min
+    dq = df[((df['height']>=min)&(df['height']<=max))]
+    dq
+    low = min-1.5*iqr
+    high = max+1.5*iqr
+    dq = df[((df['height']>=min)&(df['height']<=max))]
+    dq
 
 
+# ZSCORE:
 
+    import pandas as pd
+    import numpy as np
+    import seaborn as sns
+    import pandas as pd
+    from scipy import stats
+    data = {'weight':[12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,202,72,75,78,81,84,232,87,90,93,96,99,258]}
+    df = pd.DataFrame(data)
+    df
+    sns.boxplot(data=df)
+    z = np.abs(stats.zscore(df))
+    print(df[z['weight']>3])
+    val =[12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,202,72,75,78,81,84,232,87,90,93,96,99,258]
+    out=[]
+    def d_o(val):
+    ts=3
+    m=np.mean(val)
+    sd=np.std(val)    
+    for i in val:
+    z=(i-m)/sd
+    if np.abs(z)>ts:
+    out.append(i)
+    return out
+    op = d_o(val)
+    op
+
+
+# OUTPUT
+![307783134-2f1a046f-49e9-440a-ba5f-8c16dae0e97d](https://github.com/NVikas1905/exno1/assets/133752491/e59cce11-a9a4-42ad-8f66-61a57c71be8b)
+![307783152-9180b739-53e6-4d08-9761-eb41d79089ea](https://github.com/NVikas1905/exno1/assets/133752491/3591b2b5-ed4f-473e-be17-ce40ceead5c6)
+![307783380-95daf9ae-454f-4924-ba58-b828b333e3b1](https://github.com/NVikas1905/exno1/assets/133752491/90d87060-87b0-45d1-82ca-55297a67e9c3)
+![307783428-d889c5ca-07e3-4224-bc95-8a3e9faa1064](https://github.com/NVikas1905/exno1/assets/133752491/c4a60a28-0299-44c9-b67d-7030e4ae1416)
+![307783469-55f97582-795b-4864-aacf-f8df9fc3bea9](https://github.com/NVikas1905/exno1/assets/133752491/e23d7d25-399e-4d85-aa06-0d2845e7dbc2)
+![307783511-5d50f766-e253-4177-a6b0-bcfba5e14a17](https://github.com/NVikas1905/exno1/assets/133752491/c3df9882-3554-4f48-88f4-65fd7f06b5dc)
+
+
+# RESULT
+
+Thus, the given data is read, cleansed and the cleaned data is saved into the file and the given data is read,remove outliers and save a new dataframe was created and executed successfully.
 
 
