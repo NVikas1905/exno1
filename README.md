@@ -21,24 +21,24 @@ STEP 5: Remove outliers using IQR
 STEP 6: Use zscore of to remove outliers
 
 # Coding and Output
- import pandas as pd
- df=pd.read_csv("/content/Data_set .csv")
- df
- df.head(10)
- df.info()
- df.isnull()
- df.isnull().sum()
- df['show_name']=df['show_name'].fillna(df['aired_on'].mode()[0])
- df['aired_on']=df['aired_on'].fillna(df['aired_on'].mode()[0])
- df['original_network']=df['original_network'].fillna(df['aired_on'].mode()[0])
- df.head()
- df['rating']=df['rating'].fillna(df['rating'].mean())
- df['current_overall_rank']=df['current_overall_rank'].fillna(df['current_overall_rank'].mean
- df.head()
- df['watchers']=df['watchers'].fillna(df['watchers'].median())
- df.head()
- df.info()
- df.isnull().sum()
+    import pandas as pd
+    df=pd.read_csv("/content/Data_set .csv")
+    df
+    df.head(10)
+    df.info()
+    df.isnull()
+    df.isnull().sum()
+    df['show_name']=df['show_name'].fillna(df['aired_on'].mode()[0])
+    df['aired_on']=df['aired_on'].fillna(df['aired_on'].mode()[0])
+    df['original_network']=df['original_network'].fillna(df['aired_on'].mode()[0])
+    df.head()
+    df['rating']=df['rating'].fillna(df['rating'].mean())
+    df['current_overall_rank']=df['current_overall_rank'].fillna(df['current_overall_rank'].mean
+    df.head()
+    df['watchers']=df['watchers'].fillna(df['watchers'].median())
+    df.head()
+    df.info()
+    df.isnull().sum()
 # Result
 ![307779755-b581b6e4-b8b3-481f-a93c-3ff7421c1a0c](https://github.com/NVikas1905/exno1/assets/133752491/1bb2c4b4-4a28-4802-af7b-c43285bf1094)
 ![307779800-cb40ed94-b364-4e1f-8d5b-293f5c1d39cf](https://github.com/NVikas1905/exno1/assets/133752491/e74d930d-45c3-4ddd-a978-7041a68cd5e8)
